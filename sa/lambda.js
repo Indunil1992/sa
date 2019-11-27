@@ -1,13 +1,14 @@
 let AWS = require('aws-sdk');
-const sns = new AWS.SNS();
+const rekognition = new AWS.Rekognition();
 
 exports.handler = function (event, context, callback) {
-    sns.publish({
-        Message: 'test123',
-        Subject: 'test1indunil',
-        MessageAttributes: {},
-        MessageStructure: 'String',
-        TopicArn: 'arn:aws:sns:us-east-1:318300609668:TestSNS'
+    rekognition.detectLabels({
+        Image: {
+            S3Object: {
+                Bucket: "indunil.trigger",
+                Name: "quiz400.jpg"
+            }
+        }
     }).promise()
         .then(data => {
             // your code goes here
