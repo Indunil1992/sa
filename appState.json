@@ -22,7 +22,7 @@
         "children": [],
         "isRemovable": true,
         "filePath": "sa/lambda.js",
-        "code": "let AWS = require('aws-sdk');\nconst rekognition = new AWS.Rekognition();\n\nexports.handler = function (event, context, callback) {\n    rekognition.detectLabels({\n        Image: {\n            S3Object: {\n                Bucket: \"indunil.trigger\",\n                Name: \"quiz400.jpg\"\n            }\n        }\n    }).promise()\n        .then(data => {\n            // your code goes here\n        })\n        .catch(err => {\n            // error handling goes here\n        });\n\n    callback(null, { \"message\": \"Successfully executed\" });\n}",
+        "code": "let AWS = require('aws-sdk');\nconst rekognition = new AWS.Rekognition();\n\nexports.handler = function (event, context, callback) {\n    rekognition.detectLabels({\n        Image: {\n            S3Object: {\n                Bucket: \"indunil.trigger\",\n                Name: \"quiz400.jpg\"\n            }\n        }\n    }).promise()\n        .then(data => {\n             console.log(data);\n console.log(\"dataaaaaaa\");\n\n            // your code goes here\n        })\n        .catch(err => {\n                         console.log(err);\n console.log(\"errrrrrrrrrrrrrrrrrrrr\");\n            // error handling goes here\n        });\n\n    callback(null, { \"message\": \"Successfully executed\" });\n}",
         "config": {
           "runtime": "nodejs8.10",
           "handler": "handler",
@@ -87,7 +87,7 @@
     "projectRegion": "us-east-1",
     "platform": "AWS",
     "platformRegions": {},
-    "lastSave": 1574830432337
+    "lastSave": 1574830505709
   },
   "VCS_STATE": {
     "provider": "GitHub",
