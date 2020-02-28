@@ -11,8 +11,8 @@
         "isRemovable": true,
         "filePath": "lambda28.js",
         "cursor": {
-          "lineNumber": 19,
-          "column": 34
+          "lineNumber": 20,
+          "column": 1
         },
         "config": {
           "runtime": "nodejs10.x",
@@ -62,16 +62,39 @@
           "mode": 0
         }
       },
-      "snsusEast1TestSNS": {
-        "name": "snsusEast1TestSNS",
-        "type": "SNS",
+      "ddbhirutest": {
+        "name": "ddbhirutest",
+        "type": "DynamoDB",
         "config": {
-          "topicMode": 1,
-          "topicName": "TestSNS",
-          "topicArn": "arn:aws:sns:us-east-1:318300609668:TestSNS",
-          "topicRegion": "us-east-1",
-          "snsType": 0,
-          "subscriptions": []
+          "mode": 1,
+          "operation": "get",
+          "table": {
+            "arn": "arn:aws:dynamodb:us-east-1:318300609668:table/hirutest",
+            "name": "hirutest",
+            "partitionKey": "price",
+            "partitionKeyType": "S",
+            "hasSortKey": true,
+            "sortKey": "colour",
+            "sortKeyType": "S",
+            "payPerRequest": true,
+            "mode": 1,
+            "streamArn": "arn:aws:dynamodb:us-east-1:318300609668:table/hirutest/stream/2020-01-02T08:32:20.233"
+          },
+          "isGlobalEditMode": false,
+          "parameters": {
+            "Key": {
+              "price": "1",
+              "colour": "2"
+            },
+            "Item": {},
+            "ExpressionAttributeValues": {}
+          },
+          "triggerParams": {},
+          "validator": {
+            "validatableFields": {},
+            "validity": true
+          },
+          "valid": true
         }
       }
     },
@@ -109,7 +132,7 @@
     "platform": "AWS",
     "language": "nodejs",
     "platformRegions": {},
-    "lastSave": 1582867161293
+    "lastSave": 1582867486667
   },
   "VCS_STATE": {
     "provider": "GitHub",
