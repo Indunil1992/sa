@@ -11,8 +11,8 @@
         "isRemovable": true,
         "filePath": "lambda28.js",
         "cursor": {
-          "lineNumber": 20,
-          "column": 1
+          "lineNumber": 5,
+          "column": 41
         },
         "config": {
           "runtime": "nodejs10.x",
@@ -23,7 +23,7 @@
         },
         "triggers": [
           {
-            "resourceName": "apigusEast1Londoncheckcalany",
+            "resourceName": "cwebotUserHsScheduler",
             "config": {}
           }
         ],
@@ -62,39 +62,13 @@
           "mode": 0
         }
       },
-      "ddbhirutest": {
-        "name": "ddbhirutest",
-        "type": "DynamoDB",
+      "cwebotUserHsScheduler": {
+        "name": "cwebotUserHsScheduler",
+        "type": "CLOUD_WATCH",
         "config": {
           "mode": 1,
-          "operation": "get",
-          "table": {
-            "arn": "arn:aws:dynamodb:us-east-1:318300609668:table/hirutest",
-            "name": "hirutest",
-            "partitionKey": "price",
-            "partitionKeyType": "S",
-            "hasSortKey": true,
-            "sortKey": "colour",
-            "sortKeyType": "S",
-            "payPerRequest": true,
-            "mode": 1,
-            "streamArn": "arn:aws:dynamodb:us-east-1:318300609668:table/hirutest/stream/2020-01-02T08:32:20.233"
-          },
-          "isGlobalEditMode": false,
-          "parameters": {
-            "Key": {
-              "price": "1",
-              "colour": "2"
-            },
-            "Item": {},
-            "ExpressionAttributeValues": {}
-          },
-          "triggerParams": {},
-          "validator": {
-            "validatableFields": {},
-            "validity": true
-          },
-          "valid": true
+          "arn": "arn:aws:events:us-east-1:318300609668:rule/botUserHsScheduler",
+          "name": "botUserHsScheduler"
         }
       }
     },
@@ -132,7 +106,7 @@
     "platform": "AWS",
     "language": "nodejs",
     "platformRegions": {},
-    "lastSave": 1582867486667
+    "lastSave": 1582867692035
   },
   "VCS_STATE": {
     "provider": "GitHub",
