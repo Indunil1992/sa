@@ -1,57 +1,78 @@
 {
   "EDITOR_STATE": {
     "allProjectFiles": {
-      "ca96e6e1-b0a1-4294-8723-38d8685c6b5d": {
-        "id": "ca96e6e1-b0a1-4294-8723-38d8685c6b5d",
+      "ccfe9e5f-a94e-4d11-985a-be1d2f7082f8": {
+        "id": "ccfe9e5f-a94e-4d11-985a-be1d2f7082f8",
         "parent": null,
-        "name": "sa",
-        "type": "DIRECTORY",
-        "isDirectory": true,
-        "children": [
-          "11efb107-f32f-46cf-bd03-fdb773666b81"
-        ],
-        "isRemovable": false,
-        "filePath": "sa"
-      },
-      "11efb107-f32f-46cf-bd03-fdb773666b81": {
-        "id": "11efb107-f32f-46cf-bd03-fdb773666b81",
-        "parent": "ca96e6e1-b0a1-4294-8723-38d8685c6b5d",
         "name": "lambda.js",
         "type": "JS_LAMBDA",
         "isDirectory": false,
         "children": [],
         "isRemovable": true,
-        "filePath": "sa/lambda.js",
-        "code": "let AWS = require('aws-sdk');\nconst rekognition = new AWS.Rekognition();\n\nexports.handler = function (event, context, callback) {\n    rekognition.detectLabels({\n        Image: {\n            S3Object: {\n                Bucket: \"indunil.trigger\",\n                Name: \"quiz400.jpg\"\n            }\n        }\n    }).promise()\n        .then(data => {\n             console.log(data);\n console.log(\"dataaaaaaa\");\n\n            // your code goes here\n        })\n        .catch(err => {\n                         console.log(err);\n console.log(\"errrrrrrrrrrrrrrrrrrrr\");\n            // error handling goes here\n        });\n\n    callback(null, { \"message\": \"Successfully executed\" });\n}",
+        "filePath": "lambda.js",
+        "cursor": {
+          "lineNumber": 17,
+          "column": 1
+        },
         "config": {
-          "runtime": "nodejs8.10",
+          "runtime": "nodejs10.x",
           "handler": "handler",
           "timeout": 60,
           "memory": 128,
           "layers": []
         },
-        "triggers": [],
-        "testCases": {
-          "a8ffa2e1-732c-4ee4-b061-5e84e8d85b07": {
-            "id": "a8ffa2e1-732c-4ee4-b061-5e84e8d85b07",
-            "name": "Test event",
-            "functionId": "11efb107-f32f-46cf-bd03-fdb773666b81",
-            "event": "{\"key1\": \"value1\", \"key2\": \"value2\", \"key3\": \"value3\"}",
-            "eventTemplate": "hello-world"
+        "triggers": [
+          {
+            "resourceName": "apigusEast1Londoncheckcalany",
+            "config": {}
           }
-        }
+        ]
       }
     },
-    "rootNode": "ca96e6e1-b0a1-4294-8723-38d8685c6b5d",
     "openFiles": [
-      "11efb107-f32f-46cf-bd03-fdb773666b81"
+      "ccfe9e5f-a94e-4d11-985a-be1d2f7082f8"
     ],
-    "currentFileId": "11efb107-f32f-46cf-bd03-fdb773666b81",
+    "currentFileId": "ccfe9e5f-a94e-4d11-985a-be1d2f7082f8",
     "resources": {
-      "rekognitionResource": {
-        "name": "rekognitionResource",
-        "type": "Rekognition",
-        "config": {}
+      "sqsindunilMessageQueue": {
+        "name": "sqsindunilMessageQueue",
+        "type": "SQS",
+        "config": {
+          "mode": 1,
+          "existing": true,
+          "name": "indunil-message-queue",
+          "url": "https://sqs.us-east-1.amazonaws.com/318300609668/indunil-message-queue",
+          "selectedRegion": "us-east-1",
+          "deliveryDelay": "0",
+          "deliveryDelayUnit": "seconds",
+          "queueType": "standardQueue",
+          "defaultVisibilityTimeout": "30",
+          "defaultVisibilityTimeoutUnit": "seconds",
+          "messageRetentionPeriod": "345600",
+          "messageRetentionPeriodUnit": "seconds",
+          "maximumMessageSize": 256,
+          "receiveMessageWaitTime": "0",
+          "queueARN": "arn:aws:sqs:us-east-1:318300609668:indunil-message-queue"
+        }
+      },
+      "apigusEast1Londoncheckcalany": {
+        "name": "apigusEast1Londoncheckcalany",
+        "type": "API_GATEWAY",
+        "config": {
+          "selectedRegion": "us-east-1",
+          "apiMode": 0,
+          "apiName": "London",
+          "endpointType": "REGIONAL",
+          "resourceMode": 0,
+          "resourceName": "check/cal",
+          "resourcePath": "/check/cal",
+          "restMethod": "ANY",
+          "proxyIntegration": false,
+          "enableCORS": false,
+          "stageMode": 0,
+          "stageName": "qa",
+          "mode": 0
+        }
       }
     },
     "customTemplate": {
@@ -72,7 +93,7 @@
       "dependencies": {
         "aws-sdk": {
           "name": "aws-sdk",
-          "language": "javascript",
+          "language": "nodejs",
           "version": "2.176.0",
           "dev": true,
           "notRemovable": false
@@ -82,12 +103,13 @@
   },
   "PROJECT_META": {
     "projectName": "sa",
-    "projectDescription": "",
+    "projectDescription": "ds",
     "projectVersion": "1.0.0",
     "projectRegion": "us-east-1",
     "platform": "AWS",
+    "language": "nodejs",
     "platformRegions": {},
-    "lastSave": 1574830505709
+    "lastSave": 1582863396294
   },
   "VCS_STATE": {
     "provider": "GitHub",
