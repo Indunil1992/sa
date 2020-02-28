@@ -11,7 +11,7 @@
         "isRemovable": true,
         "filePath": "lambda28.js",
         "cursor": {
-          "lineNumber": 17,
+          "lineNumber": 16,
           "column": 1
         },
         "config": {
@@ -26,7 +26,16 @@
             "resourceName": "apigusEast1Londoncheckcalany",
             "config": {}
           }
-        ]
+        ],
+        "testCases": {
+          "7921b53f-95db-4079-9a47-b46e499d081a": {
+            "id": "7921b53f-95db-4079-9a47-b46e499d081a",
+            "name": "Test event",
+            "functionId": "ccfe9e5f-a94e-4d11-985a-be1d2f7082f8",
+            "event": "{\"key1\": \"value1\", \"key2\": \"value2\", \"key3\": \"value3\"}",
+            "eventTemplate": "hello-world"
+          }
+        }
       }
     },
     "openFiles": [
@@ -34,6 +43,25 @@
     ],
     "currentFileId": "ccfe9e5f-a94e-4d11-985a-be1d2f7082f8",
     "resources": {
+      "apigusEast1Londoncheckcalany": {
+        "name": "apigusEast1Londoncheckcalany",
+        "type": "API_GATEWAY",
+        "config": {
+          "selectedRegion": "us-east-1",
+          "apiMode": 0,
+          "apiName": "London",
+          "endpointType": "REGIONAL",
+          "resourceMode": 0,
+          "resourceName": "check/cal",
+          "resourcePath": "/check/cal",
+          "restMethod": "ANY",
+          "proxyIntegration": false,
+          "enableCORS": false,
+          "stageMode": 0,
+          "stageName": "qa",
+          "mode": 0
+        }
+      },
       "sqsindunilMessageQueue": {
         "name": "sqsindunilMessageQueue",
         "type": "SQS",
@@ -53,25 +81,6 @@
           "maximumMessageSize": 256,
           "receiveMessageWaitTime": "0",
           "queueARN": "arn:aws:sqs:us-east-1:318300609668:indunil-message-queue"
-        }
-      },
-      "apigusEast1Londoncheckcalany": {
-        "name": "apigusEast1Londoncheckcalany",
-        "type": "API_GATEWAY",
-        "config": {
-          "selectedRegion": "us-east-1",
-          "apiMode": 0,
-          "apiName": "London",
-          "endpointType": "REGIONAL",
-          "resourceMode": 0,
-          "resourceName": "check/cal",
-          "resourcePath": "/check/cal",
-          "restMethod": "ANY",
-          "proxyIntegration": false,
-          "enableCORS": false,
-          "stageMode": 0,
-          "stageName": "qa",
-          "mode": 0
         }
       }
     },
@@ -109,7 +118,7 @@
     "platform": "AWS",
     "language": "nodejs",
     "platformRegions": {},
-    "lastSave": 1582864524640
+    "lastSave": 1582865670060
   },
   "VCS_STATE": {
     "provider": "GitHub",
